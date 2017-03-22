@@ -1,0 +1,7 @@
+1.安装CCSv6.0以上版本（注意安装时不要有中文路径） 
+2.从CCSv5.5版本（其他版本没有测试，自测）复制以下文件： 
+（1）C:\ti\ccsv5\ccs_base\simulation ———->整个目录 
+（2）C:\ti\ccsv5\ccs_base\common\targetdb\connections\tisim_connection.xml—————>这个文件是在target配置文件中的connection选项下添加Simulator选项 
+（3）C:\ti\ccsv5\ccs_base\common\targetdb\configurations\tisim_f283x.xml ———->在CCSv6中新建configurations文件夹，配置f283x系列仿真 
+（4）C:\ti\ccsv5\ccs_base\common\targetdb\drivers\tisim_isa_f283xx_unsup.xml 
+注：C:\ti\是我CCS的安装位置，请根据自己实际路径复制粘贴。我用的dsp是f28335（利用上面文件f28xx系列都可以软件仿真，我想原因得益于硬件模块化设计），复制文件是f283xx系列文件，如果你是使用其他dsp处理器请复制其他相应的文件。
