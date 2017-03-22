@@ -1,0 +1,17 @@
+1 设置CCS       打开CCS Setup，在Family中选择CPU系列，这里选择C64xx，Platform选择simulator(软件仿真)，在Available Configuration中选择配置，大端小端都可以(程序或数据比较大需要选择大端)，点击Import按钮，然后点击Close。File菜单选择Exit退出CCS Setup，并启动CCS。
+
+2 新建CCS工程     CCS界面打开菜单Project选择New，输入工程名字、路径、工程类型，目标平台。如果工程类型是执行工程就选择Executable(.out)，如果是库工程选择Library(.lib)。目标平台要和CCS Setup中设置的相同，我使用的硬件是DM642，就选择TMS320C64XX。
+
+3 新建cmd文件   或者在CCS安装目录里面去找一个例子的cmd文件修改也行，在其中添加仿真库-l rts6400.lib
+
+   仿真库要与目标系统相匹配，前面目标选择的是TMS320C64XX，这里也是用对应的仿真库
+
+   仿真库配合头文件#include <stdio.h>可以进行IO操作和文件操作fopen、fread等读取图像或其他文件数据
+
+4 程序执行  程序编译好了之后可以直接File->Load Program，然后设置断点进行仿真调试。
+
+5 查看结果    可以使用printf()打印信息，使用菜单View->Graph->Image显示图像
+
+  bmp图像的话Color选择RGB，彩色图像R、G、B分别设置数据地址，若是单通道图像则将R/G/B/都设成一个地址。可以设为直接地址0x3000000，也可以设为数组名字Image。
+
+   如果图像的宽度不是4字节对齐的话，需要将Byte Packing to Fill 32 Bits设置成No。
