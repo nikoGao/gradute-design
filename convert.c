@@ -12,8 +12,8 @@ short x;
 
 void main() {
 	// your code goes here
-	fpIn = fopen(FILE_PATH, "rb");
-	fpOut = fopen(OUTPUT_FILE, "wb");
+	fpIn = fopen_s(&pFile1,FILE_PATH, "rb");
+	fpOut = fopen_s(&pFile2, OUTPUT_FILE, "wb");
 	while (fread(&x, sizeof(short), 1, fpIn) == 1)
 	{
 		x = ((x >> 8) & 0xff) | ((x & 0xff) << 8);
